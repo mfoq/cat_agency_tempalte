@@ -1,0 +1,523 @@
+/* STart Global Rules*/
+:root {
+  --main-color: #10cab7;
+  --sec-color: #2c4755;
+  --background-section: #f6f6f6;
+  --section-padding: 60px;
+  --paragraph-color: #777;
+  --trsnsition-duration: 0.3s;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+body {
+  font-family: "Tajawal", sans-serif;
+}
+
+html {
+  /*اي سكرول بيصير بالاتش تي ام ال راح يكون ناعم ولازم انتبه عالتوافقيه بكل المتصفحات*/
+  scroll-behavior: smooth;
+}
+.container {
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.clearfix {
+  clear: both;
+}
+
+/*Media Query for container*/
+
+/*Small*/
+@media (min-width: 768px) {
+  .container {
+    max-width: 750px;
+  }
+}
+
+/*Medium*/
+@media (min-width: 992px) {
+  .container {
+    max-width: 970px;
+  }
+}
+/*Large*/
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1170px;
+  }
+}
+
+/*End Media Query for container*/
+/* End Global Rules*/
+
+/*Start Components*/
+.special-header {
+  text-align: center;
+  font-size: 100px;
+  color: #ebeced;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -3px;
+}
+
+.special-header + p {
+  text-align: center;
+  font-size: 23px;
+  color: #666;
+  margin-top: -30px;
+}
+@media (max-width: 576px) {
+  .special-header {
+    font-size: 60px;
+  }
+  .special-header + p {
+    font-size: 19px;
+    margin-top: -20px;
+  }
+}
+/*End Components*/
+
+/*Start header*/
+.header {
+  padding: 20px;
+  background-color: #fff;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .logo {
+  width: 60px;
+}
+
+.header .links {
+  position: relative;
+}
+
+.header .links .icon {
+  width: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.header .links .icon:hover span:nth-child(2) {
+  width: 100%;
+}
+
+.header .links .icon span {
+  background-color: #333;
+  margin-bottom: 5px;
+}
+
+.header .links .icon span:first-child {
+  height: 2px;
+  width: 100%;
+}
+
+.header .links .icon span:nth-child(2) {
+  height: 2px;
+  width: 70%;
+  transition: var(
+    --trsnsition-duration,
+    #eeee
+  ); /*هاظ اللون الثاني اللي جنب المتغير اسمه فول باك بوخذه كقيمه اذا صار عندي مشكله بالمتغير*/
+}
+.header .links .icon span:last-child {
+  height: 2px;
+  width: 100%;
+}
+
+.header .links ul {
+  display: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: calc(100% + 15px);
+  right: 0;
+  list-style: none;
+  background-color: #eee;
+  width: 200px;
+  z-index: 1;
+}
+
+.header .links ul::before {
+  content: "";
+  border-style: solid;
+  border-width: 10px;
+  border-color: transparent transparent #eee transparent;
+  position: absolute;
+  right: 5px;
+  top: -20px;
+}
+
+.header .links ul li a {
+  text-decoration: none;
+  display: block;
+  padding: 15px;
+  color: #222;
+  transition: var(--trsnsition-duration);
+}
+.header .links ul li a:hover {
+  padding-left: 25px;
+}
+
+.header .links ul li:not(:last-of-type) {
+  border-bottom: 1px solid #ddd;
+}
+
+.header .links:hover ul {
+  display: block;
+}
+/*End Header*/
+
+/*Start Landing*/
+.landing {
+  background-image: url("../images/landing.jpg");
+  height: calc(100vh - 64px);
+  background-size: cover;
+  position: relative;
+}
+
+.landing .intro-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  max-width: 100%;
+  text-align: center;
+}
+
+.landing .intro-text h1 {
+  color: var(--main-color);
+  font-size: 60px;
+  margin: 0;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.landing .intro-text p {
+  margin: 0;
+  font-size: 23px;
+  line-height: 1.6;
+}
+/*End Landing*/
+
+/*Start Features*/
+.features {
+  background-color: var(--background-section);
+  padding: var(--section-padding) 0;
+}
+
+.features .container {
+  overflow: hidden;
+}
+@media (max-width: 767px) {
+  .features .container {
+    text-align: center;
+  }
+}
+
+.features .feat-box {
+  width: calc(100% / 3);
+  float: left;
+  text-align: center;
+  padding: 15px;
+}
+
+@media (max-width: 767px) {
+  .features .feat-box {
+    width: 60%;
+    margin: 0 auto 15px auto;
+    float: none;
+  }
+}
+
+.features .feat-box i {
+  font-size: 50px;
+  color: var(--main-color);
+}
+
+.features .feat-box h1 {
+  font-size: 25px;
+  font-weight: 800;
+  color: rgb(39, 38, 38);
+  margin: 20px 0;
+}
+.features .feat-box p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin: 0;
+  color: #777;
+}
+/*End Features*/
+
+/*start Services*/
+.services {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+
+.services .services-content {
+  margin-top: 100px;
+}
+
+.services .services-content .col .srv {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 767px) {
+  .services .services-content .col .srv {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.services .services-content .col .srv i {
+  color: var(--main-color);
+  flex-basis: 60px; /*عشان عالموبايل يعطي الايكون طول وعرض */
+}
+.services .services-content .col .srv .text {
+  flex: 1;
+}
+@media (max-width: 767px) {
+  .services .services-content .col .srv .text {
+    text-align: center;
+  }
+}
+
+.services .services-content .col .srv .text h3 {
+  margin: 0 0 20px;
+}
+
+.services .services-content .col .srv .text p {
+  color: #444;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.services .services-content .col .image {
+  text-align: center;
+  position: relative;
+}
+.services .services-content .col .image::before {
+  content: "";
+  width: 100px;
+  height: calc(100% + 100px);
+  background-color: var(--sec-color);
+  position: absolute;
+  right: 0;
+  top: -50px;
+  z-index: -1;
+}
+.services .services-content .col .image img {
+  width: 260px;
+}
+
+@media (max-width: 1199px) {
+  .image-column {
+    display: none;
+  }
+}
+/*End Services*/
+
+/*Start Protfolio*/
+.portfolio {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  background-color: var(--background-section);
+}
+
+.portfolio .portfolio-content {
+  margin-top: 80px;
+}
+.portfolio .portfolio-content .card {
+  background-color: #fff;
+}
+.portfolio .portfolio-content .card img {
+  max-width: 100%;
+}
+.portfolio .portfolio-content .card .project-info {
+  padding: 20px;
+}
+
+.portfolio .portfolio-content .card .project-info h3 {
+  margin: 0;
+  font-weight: 800;
+}
+
+.portfolio .portfolio-content .card .project-info p {
+  line-height: 1.6;
+  color: var(--paragraph-color);
+  font-size: 17px;
+  margin-bottom: 0;
+}
+
+/*End Portfolio*/
+/*Start About us*/
+.about-us {
+  padding-top: var(--section-padding);
+  padding-bottom: calc(var(--section-padding) + 60px);
+}
+
+.about-us .about-contianer {
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap; /*عشان لو الكونتيت زادت مساحتها تنزل تحت*/
+  justify-content: space-between;
+}
+@media (max-width: 991px) {
+  .about-contianer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.about-us .about-contianer .about-image {
+  position: relative;
+  width: 250px;
+  height: 375px;
+}
+@media (max-width: 991px) {
+  .about-image {
+    margin: 0 auto;
+    margin-bottom: 60px;
+  }
+}
+.about-us .about-contianer .about-image::before {
+  content: "";
+  width: 120px;
+  background-color: var(--background-section);
+  height: calc(100% + 80px);
+  position: absolute;
+  left: -25px;
+  top: -40px;
+  z-index: -1;
+}
+
+.about-us .about-contianer .about-image::after {
+  content: "";
+  width: 100px;
+  height: 80%;
+  position: absolute;
+  top: -40px;
+  left: 200px;
+  border-left: 80px solid var(--main-color);
+  border-bottom: 60px solid var(--main-color);
+  z-index: -1;
+}
+@media (max-width: 991px) {
+  .about-image::before,
+  .about-image::after {
+    display: none;
+  }
+}
+.about-us .about-contianer .about-image img {
+  max-width: 100%;
+}
+.about-us .about-contianer .about-text {
+  flex-basis: calc(
+    100% - 500px
+  ); /*الفليكس بيسيز بضمن انه لما اعمل الفليكس دايركشن كولوم للشاشات الصغيره انه العنصر يوخذ العرضك كامل ما اضطر اغير العرض انا بالميديا*/
+}
+
+.about-us .about-contianer .about-text p {
+  line-height: 1.7;
+  font-size: 17px;
+}
+.about-us .about-contianer .about-text p:first-child {
+  font-weight: 900;
+  margin: 0;
+  margin-bottom: 30px;
+}
+
+.about-us .about-contianer .about-text hr {
+  width: 50%;
+  display: inline-block;
+  border-color: var(--main-color);
+}
+
+.about-us .about-contianer .about-text p:last-of-type {
+  color: var(--paragraph-color);
+}
+
+/*End About us*/
+
+/*Start contact us*/
+.contact {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  background-color: var(--background-section);
+}
+
+.contact .contact-contianer {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  text-align: center;
+}
+
+.contact .contact-contianer .label {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--sec-color);
+  letter-spacing: -2px;
+  margin-bottom: 15px;
+}
+
+.contact .contact-contianer .link {
+  display: block;
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--main-color);
+  text-decoration: none;
+}
+.contact .contact-contianer .social {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.contact .contact-contianer .social i {
+  margin-left: 10px;
+  color: var(--sec-color);
+  cursor: pointer;
+}
+@media (max-width: 567px) {
+  .contact .contact-contianer .label,
+  .contact .contact-contianer .link {
+    font-size: 25px;
+  }
+}
+/*End contact us*/
+
+/*Start Footer*/
+.footer {
+  background-color: var(--sec-color);
+  color: #fff;
+}
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer .container p strong {
+  color: var(--main-color);
+}
+/*End footer*/
+
+/*General classes for same properties i used it alot*/
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 30px;
+}
